@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from 'next/image';
 
 const events = [
   {
@@ -66,12 +67,15 @@ export default function TicketsPage() {
             key={event.id}
             className="flex items-center bg-purple-500 p-6 rounded-lg shadow-lg"
           >
-            {/* Imagen a la izquierda */}
-            <img
-              src={event.image}
-              alt={event.name}
-              className="w-40 h-40 object-cover rounded-md"
-            />
+           
+           <Image
+  src={event.image}
+  alt={event.name}
+  width={160} // Equivalente a w-40 (40 * 4 = 160px)
+  height={160} // Equivalente a h-40
+  className="object-cover rounded-md"
+/>
+
 
             {/* Contenido al centro */}
             <div className="flex-grow px-4">

@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #141414ed;
+  --foreground: #121212;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+
+@font-face {
+  font-family: 'Hamston';
+  src: url('/fonts/Hamston.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nickson';
+  src: url('/fonts/Nickson.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nougat';
+  src: url('/fonts/Nougat.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Heading15Medium';
+  src: url('/fonts/Heading15Medium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'HeadingMedium';
+  src: url('/fonts/HeadingMedium.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Muro';
+  src: url('/fonts/Muro.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Blastimo';
+  src: url('/fonts/Blastimo.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ body {
+   
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif; 
+}

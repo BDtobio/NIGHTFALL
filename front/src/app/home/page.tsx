@@ -9,7 +9,7 @@ import { events } from "../../data/events";
 import Image from "next/image";
 
 export default function Home() {
-  const [selectedImage, setSelectedImage] = useState(null);
+const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const images = [
     { src: "/images/images.jpg", alt: "Random 1" },

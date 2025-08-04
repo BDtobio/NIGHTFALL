@@ -2,54 +2,17 @@
 
 import { useState } from "react";
 import Image from 'next/image';
+import { events } from "@/data/events";
 
-const events = [
-  {
-    id: 1,
-    name: "🎶 Fiesta Electrónica",
-    date: "10 de Marzo",
-    time: "22:00 hrs",
-    image: "/images/img2.jpg",
-  },
-  {
-    id: 2,
-    name: "🔥 Reggaeton Night",
-    date: "15 de Marzo",
-    time: "23:00 hrs",
-    image: "/images/img2.jpg",
-  },
-  {
-    id: 3,
-    name: "🎸 Rock Fest",
-    date: "20 de Marzo",
-    time: "20:00 hrs",
-    image: "/images/img2.jpg",
-  },
-  {
-    id: 4,
-    name: "🎤 Hip-Hop Battle",
-    date: "25 de Marzo",
-    time: "21:00 hrs",
-    image: "/images/img2.jpg",
-  },
-  {
-    id: 5,
-    name: "🎻 Concierto Clásico",
-    date: "30 de Marzo",
-    time: "19:00 hrs",
-    image: "/images/img2.jpg",
-  },
-  {
-    id: 6,
-    name: "🎭 Teatro Experimental",
-    date: "5 de Abril",
-    time: "18:00 hrs",
-    image: "/images/img2.jpg",
-  },
-];
+type Event = {
+  title: string;
+  date: string;
+  link: string;
+};
+
 
 export default function TicketsPage() {
-  const [selectedEvent, setSelectedEvent] = useState(null);
+ const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   return (
     <div className="min-h-screen bg-black text-white p-6">
@@ -70,7 +33,7 @@ export default function TicketsPage() {
            
            <Image
   src={event.image}
-  alt={event.name}
+  alt={event.title}
   width={160} // Equivalente a w-40 (40 * 4 = 160px)
   height={160} // Equivalente a h-40
   className="object-cover rounded-md"
@@ -79,8 +42,8 @@ export default function TicketsPage() {
 
             {/* Contenido al centro */}
             <div className="flex-grow px-4">
-              <h2 className="text-xl font-semibold text-white">{event.name}</h2>
-              <p className="text-white-800">{event.date} - {event.time}</p>
+              <h2 className="text-xl font-semibold text-white">{event.title}</h2>
+              <p className="text-white-800">{event.date} - {event.date}</p>
             </div>
 
             {/* Botón a la derecha */}
@@ -99,8 +62,8 @@ export default function TicketsPage() {
       {selectedEvent && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
           <div className="bg-gray-900 p-6 rounded-lg shadow-lg text-center">
-            <h2 className="text-2xl text-white font-semibold">{selectedEvent.name}</h2>
-            <p className="text-gray-400 mt-2">{selectedEvent.date} - {selectedEvent.time}</p>
+            <h2 className="text-2xl text-white font-semibold">{selectedEvent.title}</h2>
+            <p className="text-gray-400 mt-2">{selectedEvent.date} - {selectedEvent.date}</p>
             <button
               className="mt-4 bg-purple-600 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded-lg"
               onClick={() => setSelectedEvent(null)}

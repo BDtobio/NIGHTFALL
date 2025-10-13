@@ -7,7 +7,7 @@ export default function Navbar() {
 
   return (
     <nav className="bg-foreground text-black-500 
-    text-white py-8 px-6 w-full fixed top-0 left-0 shadow-lg z-50 flex items-center">
+    text-black py-8 px-6 w-full fixed top-0 left-0 shadow-lg z-50 flex items-center">
       {/* Título a la izquierda */}
       <h1 className="font-Hamston text-3xl font-hestrial text-white">
         NIGHTFALL

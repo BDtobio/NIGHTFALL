@@ -3,15 +3,31 @@
 @tailwind utilities;
 
 :root {
-  --background: #141414ed;
-  --foreground: #121212;
+  --background: #101010;
+  --foreground: #ededed;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #101010;
     --foreground: #ededed;
   }
+}
+
+/* Aseguramos altura completa */
+html,
+body {
+  height: 100%;
+  min-height: 100vh;
+}
+
+/* Fuente global */
+body {
+  color: var(--foreground);
+  background-color: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 
@@ -59,9 +75,3 @@
   font-style: normal;
 }
 
- body {
-   
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif; 
-}

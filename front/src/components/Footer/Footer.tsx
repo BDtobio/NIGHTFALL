@@ -2,7 +2,7 @@ import { FaWhatsapp, FaInstagram, FaTiktok, FaEnvelope } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-foreground
+    <footer className="bg-[#5a46b9]
     text-white py-6 w-full text-center">
       
       <div className="flex flex|    justify-center items-center space-2-4 mb-4">

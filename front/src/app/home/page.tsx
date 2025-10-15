@@ -31,21 +31,24 @@ const [selectedImage, setSelectedImage] = useState<string | null>(null);
     <div className="relative w-full min-h-screen flex flex-col text-white">
       {/* Contenedor del video de fondo */}
       <div className="absolute inset-0 -z-10">
-        <video
-          className="w-full h-full object-cover pointer-events-none"
-          src="/videos/video.mp4"
-          autoPlay
-          loop
-          muted
-        ></video>
+       <video
+  className="w-full h-full object-cover pointer-events-none translate-y-[-35px]"
+  src="/videos/video.mp4"
+  autoPlay
+  loop
+  muted
+></video>
         {/* Capa oscura encima del video */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-black bg-opacity-40"></div>
       </div>
 
       {/* Contenido principal centrado */}
-      <div className="relative z-10 flex flex-col justify-center items-center h-screen text-center p-6">
+     <div className="relative z-10 flex flex-col justify-center items-center min-h-screen text-center p-6">
+
         <section className="max-w-6xl px-6 py-12">
-          <h2 className="font-Hamston text-[10rem] leading-none mb-8">NIGHTFALL</h2>
+          <h2 className="font-Hamston text-6xl md:text-[10rem] leading-none mb-8">
+  NIGHTFALL
+</h2>
           <p className="text-xl mb-6">LA NOCHE EMPIEZA AQUÍ, COMPRA TUS TICKETS</p>
           <Link href="/tickets">
             <button className="bg-purple-600 text-white text-lg py-3 px-6 rounded-full font-bold hover:bg-purple-900 transition-all shadow-[0px_0px_8px_2px_rgba(255,255,255,0.1)] hover:shadow-[0px_0px_12px_4px_rgba(255,255,255,0.2)]">
@@ -61,24 +64,27 @@ const [selectedImage, setSelectedImage] = useState<string | null>(null);
         <div className="w-full overflow-hidden">
           {/* Swiper para el slider de eventos */}
           <Swiper
-            ref={swiperRef}
-            slidesPerView={4} // Cuántos slides mostrar a la vez
-            spaceBetween={20} // Espacio entre cada slide
-            loop={true} // Hacer loop
-            autoplay={{
-              delay: 3000, // Desplazamiento automático cada 3 segundos
-              disableOnInteraction: false, // No detiene el autoplay si el usuario interactúa
-              pauseOnMouseEnter: true, // Pausa el autoplay cuando el ratón está sobre el slider
-            }}
-            pagination={{
-              clickable: true, // Si quieres que la paginación sea clickeable
-            }}
-            navigation={{
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-            }}
-            className="swiper-container"
-          >
+  ref={swiperRef}
+  loop={true}
+  autoplay={{
+    delay: 3000,
+    disableOnInteraction: false,
+    pauseOnMouseEnter: true,
+  }}
+  breakpoints={{
+    0: { slidesPerView: 1, spaceBetween: 10 },      // móvil
+    640: { slidesPerView: 2, spaceBetween: 15 },    // tablet
+    1024: { slidesPerView: 4, spaceBetween: 20 },   // desktop
+  }}
+  pagination={{ clickable: true }}
+  navigation={{
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  }}
+  className="swiper-container"
+>
+
+
             {/* Mostrar los eventos clonados y originales */}
             {[...events, ...events].map((event, index) => (
               <SwiperSlide key={index} className="flex justify-center items-center px-2">
@@ -98,7 +104,7 @@ const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
 
   
-      <section className=" bg-black w-full px-6 py-12">
+      <section className=" bg-[#101010] w-full px-6 py-12">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         {images.map((image, index) => (
           <div

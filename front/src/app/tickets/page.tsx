@@ -16,7 +16,7 @@ export default function TicketsPage() {
   const [selectedEvent, setSelectedEvent] = useState<Event | null>(null);
 
   return (
-    <div className="min-h-screen bg-black text-white p-6">
+   <div className="min-h-screen bg-black text-white p-10 w-full">
       <h1 className="text-4xl font-bold text-purple-600 text-center mb-8">
         Compra tus Tickets
       </h1>
@@ -25,37 +25,43 @@ export default function TicketsPage() {
       </p>
 
       {/* Contenedor de tarjetas */}
-      <div className="max-w-4xl mx-auto space-y-6">
-        {events.map((event) => (
-          <div
-            key={event.id}
-            className="flex flex-col md:flex-row items-center bg-purple-500 p-6 rounded-lg shadow-lg"
-          >
-            {/* Imagen */}
-            <Image
-              src={event.image}
-              alt={event.title}
-              width={160}
-              height={160}
-              className="object-cover rounded-md w-full md:w-40 h-40"
-            />
+     <div className="max-w-4xl mx-auto space-y-8 px-4 md:px-0">
+  {events.map((event) => (
+    <div
+      key={event.id}
+      className="flex flex-col md:flex-row items-center bg-[#5a46b9]/95 p-6 md:p-8 rounded-2xl 
+                 shadow-[0_4px_15px_rgba(90,70,185,0.4)] hover:shadow-[0_8px_25px_rgba(90,70,185,0.5)]
 
-            {/* Contenido */}
-            <div className="flex flex-col md:flex-grow px-0 md:px-4 mt-4 md:mt-0 text-center md:text-left">
-              <h2 className="text-xl font-semibold text-white">{event.title}</h2>
-              <p className="text-gray-200 mt-1">{event.date}</p>
-            </div>
 
-            {/* Botón */}
-            <button
-              className="mt-4 md:mt-0 md:ml-auto bg-white text-lg hover:bg-black text-purple-800 font-bold py-3 px-5 rounded-lg transition"
-              onClick={() => setSelectedEvent(event)}
-            >
-              Comprar
-            </button>
-          </div>
-        ))}
+                 transition-all duration-300 transform hover:scale-[1.02]"
+    >
+      {/* Imagen */}
+      <Image
+        src={event.image}
+        alt={event.title}
+        width={160}
+        height={160}
+        className="object-cover rounded-xl w-full md:w-44 h-44 border-4 border-white/10"
+      />
+
+      {/* Contenido */}
+      <div className="flex flex-col md:flex-grow px-0 md:px-6 mt-4 md:mt-0 text-center md:text-left">
+        <h2 className="text-2xl font-semibold text-white tracking-wide">{event.title}</h2>
+        <p className="text-gray-200 mt-2 text-base">{event.date}</p>
       </div>
+
+      {/* Botón */}
+      <button
+        className="mt-4 md:mt-0 md:ml-auto bg-white text-[#5a46b9] font-bold py-3 px-6 rounded-full 
+                   hover:bg-[#eee] hover:scale-105 active:scale-95 transition-all duration-300"
+        onClick={() => setSelectedEvent(event)}
+      >
+        Comprar
+      </button>
+    </div>
+  ))}
+</div>
+
 
       {/* Modal */}
       {selectedEvent && (
